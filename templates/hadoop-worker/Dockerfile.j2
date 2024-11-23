@@ -12,7 +12,7 @@
 # limitations under the License.
 
 ARG PROJECT_VERSION
-FROM hadoop-testing/base-ubuntu-2004:$PROJECT_VERSION
+FROM hadoop-testing/base-ubuntu-2004:1-SNAPSHOT
 
 ARG HADOOP_VERSION
 ARG SPARK_VERSION
@@ -58,4 +58,4 @@ EXPOSE 1004 1006 8020 9866 9867 9870 9864 50470
 # YARN ports
 EXPOSE 8030 8031 8032 8033 8040 8041 8042 8088 10020 19888
 
-CMD supervisord -c /etc/supervisord.conf
+CMD ["supervisord", "-c", "/etc/supervisord.conf"]

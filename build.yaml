@@ -2,6 +2,85 @@
 - name: compile template files
 
   hosts: local
+  vars:
+    project_version: 1-SNAPSHOT
+
+    # base
+    zulu8_version: 8.82.0.21
+    jdk8_version: 8.0.432
+
+    zulu11_version: 11.76.21
+    jdk11_version: 11.0.25
+
+    zulu17_version: 17.54.21
+    jdk17_version: 17.0.13
+
+    jdk21_enabled: false
+    zulu21_version: 21.38.21
+    jdk21_version: 21.0.5
+
+    s3_enabled: false
+    aws_java_sdk_version: 1.12.620
+
+    # components
+    kerberos_enabled: true
+
+    hadoop_version: 3.3.6
+
+    hive_version: 2.3.9
+
+    zeppelin_enabled: true
+    zeppelin_version: 0.11.0
+    zeppelin_custom_name: all
+
+    zookeeper_version: 3.8.4
+
+    scala_binary_version: 2.12
+
+    spark_enabled: true
+    spark_binary_version: 3.5
+    spark_hadoop_version: 3.3.4
+    spark_version: 3.5.3
+
+    flink_enabled: true
+    flink_binary_version: 1.20
+    flink_version: 1.20.0
+    flink_hive_version: 2.3.10
+
+    kyuubi_enabled: true
+    kyuubi_version: 1.10.0
+    kyuubi_hadoop_version: 3.3.6
+
+    ranger_enabled: false
+    ranger_version: 2.4.0
+
+    trino_enabled: false
+    trino_version: 436
+
+    iceberg_enabled: true
+    iceberg_version: 1.7.0
+
+    hudi_enabled: false
+    hudi_version: 0.14.1
+
+    kafka_enabled: true
+    kafka_version: 2.8.1
+
+    grafana_enabled: false
+    grafana_version: 11.1.3
+
+    prometheus_enabled: false
+    prometheus_version: 2.53.1
+
+    loki_enabled: false
+    loki_version: 3.1.0
+    loki_log4j2_appender_version: 0.9.32
+
+    # repository
+    repository_apache: https://mirrors.cloud.tencent.com/apache
+    repository_maven: https://mirrors.cloud.tencent.com/maven
+
+    apt_mirror_enabled: true
 
   tasks:
     - name: orchestrate basic files

@@ -38,7 +38,7 @@ The supported components are listed below:
 | Hive Metastore | 2.3.9   | Yes            | No       | Yes             |                                        |
 | HiveServer2    | 2.3.9   | Yes            | No       | Yes             |                                        |
 | Kyuubi         | 1.10.0  | Yes            | No       | Yes             |                                        |
-| Spark          | 3.5.2   | Yes            | Yes      | Yes             | spark_enabled                          |
+| Spark          | 3.5.3   | Yes            | Yes      | Yes             | spark_enabled                          |
 | Flink          | 1.20.0  | Yes            | Yes      | No              | flink_enabled                          |
 | Trino          | 436     | Not Yet        | Yes      | No              | trino_enabled                          |
 | Ranger         | 2.4.0   | Not Yet        | Yes      | No              | ranger_enabled                         |
@@ -254,6 +254,7 @@ Once the testing environment is fully operational, the following services will b
 - Kyuubi UI: http://hadoop-master1.orb.local:10099
 - Spark History Server: http://hadoop-master1.orb.local:18080
 - Flink History Server: http://hadoop-master1.orb.local:8082
+- Flink job Server: http://hadoop-master1.orb.local:8081
 - Hadoop HDFS: http://hadoop-master1.orb.local:9870
 - Hadoop YARN: http://hadoop-master1.orb.local:8088
 - Hadoop MapReduce JobHistory: http://hadoop-master1.orb.local:19888

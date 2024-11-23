@@ -1,4 +1,5 @@
-local ansible_connection=local
+[local]
+localhost ansible_connection=local
 
 [hadoop-master]
 hadoop-master1

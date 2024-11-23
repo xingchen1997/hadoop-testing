@@ -35,9 +35,9 @@ scala_binary_version: 2.12
 spark_enabled: true
 spark_binary_version: 3.5
 spark_hadoop_version: 3.3.4
-spark_version: 3.5.2
+spark_version: 3.5.3
 
-flink_enabled: false
+flink_enabled: true
 flink_binary_version: 1.20
 flink_version: 1.20.0
 flink_hive_version: 2.3.10

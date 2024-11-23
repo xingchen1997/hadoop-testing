@@ -12,7 +12,7 @@
 # limitations under the License.
 
 ARG PROJECT_VERSION
-FROM hadoop-testing/base-ubuntu-2004:$PROJECT_VERSION
+FROM hadoop-testing/base-ubuntu-2004:1-SNAPSHOT
 
 ARG ZEPPELIN_VERSION
 ARG ZOOKEEPER_VERSION
@@ -47,7 +47,7 @@ ENV SPARK_CONF_DIR=/etc/spark/conf
 {% endif %}
 {% if flink_enabled %}
 ENV FLINK_HOME=/opt/flink
-ENV FLINK_CONF_DIR=/etc/flink/conf
+ENV FLINK_CONF_DIR=/opt/flink/conf/
 {% endif %}
 ENV KYUUBI_HOME=/opt/kyuubi
 ENV KYUUBI_CONF_DIR=/etc/kyuubi/conf
@@ -199,7 +199,7 @@ EXPOSE 9083 10000
 EXPOSE 18080
 
 # Flink ports
-EXPOSE 8082
+EXPOSE 8082 8081
 
 {% if ranger_enabled %}
 EXPOSE 6080

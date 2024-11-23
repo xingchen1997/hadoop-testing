@@ -11,7 +11,7 @@
 # limitations under the License.
 
 ARG PROJECT_VERSION
-FROM hadoop-testing/base-ubuntu-2004:$PROJECT_VERSION
+FROM hadoop-testing/base-ubuntu-2004:1-SNAPSHOT
 
 # COPY CONFIGURATION
 COPY ./files /
