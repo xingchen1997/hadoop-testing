@@ -1,4 +1,25 @@
 Hadoop Testing
+
+macos本地的/etc/hosts
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1       localhost       hadoop-master1.orb.local
+255.255.255.255 broadcasthost
+::1             localhost
+172.18.0.3 kdc.orb.local
+
+
+172.18.0.3 kdc.orb.local kdc
+172.18.0.5 hadoop-master1.orb.local hadoop-master
+172.18.0.7 hadoop-worker1.orb.local hadoop-worker1
+172.18.0.9 hadoop-worker2.orb.local hadoop-worker2
+172.18.0.8 hadoop-worker3.orb.local hadoop-worker3
+
+
 ==============
 This serves as a testing sandbox for Hadoop, equipped with fundamental components
 of the Hadoop ecosystem to facilitate the rapid establishment of test environments.
