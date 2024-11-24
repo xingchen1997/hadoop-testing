@@ -1,27 +1,60 @@
-env:
-  java:
-    opts:
-      all: --add-exports=java.base/sun.net.util=ALL-UNNAMED --add-exports=java.rmi/sun.rmi.registry=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED --add-exports=java.security.jgss/sun.security.krb5=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.base/java.time=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.locks=ALL-UNNAMED
-jobmanager:
-  bind-host: 0.0.0.0
-  rpc:
-    address: hadoop-master1.orb.local
-    port: 6123
-  memory:
-    process:
-      size: 1600m
-  execution:
-    failover-strategy: region
-taskmanager:
-  bind-host: 0.0.0.0
-  host: hadoop-master1.orb.local
-  numberOfTaskSlots: 1
-  memory:
-    process:
-      size: 1728m
-parallelism:
-  default: 1
-rest:
-  address: hadoop-master1.orb.local
-  bind-address: 0.0.0.0
-  port: 8082
+jobmanager.rpc.address: hadoop-master1.orb.local
+jobmanager.rpc.port: 6123
+jobmanager.memory.process.size: 2g
+taskmanager.memory.process.size: 10g
+taskmanager.memory.task.heap.size: 6g
+taskmanager.memory.flink.size: 9g
+jobmanager.bind-host: 0.0.0.0
+jobmanager.archive.fs.dir: hdfs://ctyunns/flink-history/
+historyserver.archive.fs.dir: hdfs://ctyunns/flink-history/
+historyserver.web.address: 0.0.0.0
+historyserver.web.port: 8082
+historyserver.archive.fs.refresh-interval: 10000
+taskmanager.numberOfTaskSlots: 4
+parallelism.default: 1
+#security.kerberos.login.use-ticket-cache: true
+security.kerberos.login.keytab: /etc/security/keytabs/hive.keytab
+#security.kerberos.login.contexts: Client,KafkaClient
+jobmanager.execution.failover-strategy: region
+yarn.log-aggregation-enable: true
+classloader.check-leaked-classloader: false
+env.java.home: /usr/jdk64/current
+web.submit.enable: false
+env.log.dir: /var/log/flink
+#security.kerberos.login.principal: hive/dw-test59@datawings.test.cn
+security.kerberos.login.principal: hive/dw-dev14@datawings.dev.cn
+classloader.resolve-order: parent-first
+#rest.address: dw-dev16
+#rest.port: 10000
+#rest.bind-address : nm-bigdata-168030121.ctc.local
+rest.bind-port: 8081-8090
+rest.address: hadoop-master1.orb.local
+rest.bind-address: 0.0.0.0
+execution.target: yarn-session
+#yarn.application.id: application_1725247962779_6714
+yarn.application.id: application_1725247962779_8149
+# application_1722847714808_12665
+akka.ask.timeout: 2000 s
+web.timeout : 10000000
+taskmanager.memory.managed.fraction: 0.2
+taskmanager.bind-host: 0.0.0.0
+taskmanager.host: hadoop-master1.orb.local
+taskmanager.numberOfTaskSlots: 1
+pipeline.operator-chaining: false
+# Checkpoint and Savepoint directories
+state.checkpoints.dir: hdfs://ctyunns/user/flowtask/workspace/checkpoints
+state.savepoints.dir: hdfs://ctyunns/user/flowtask/workspace/savepoints
+
+state.backend: rocksdb
+state.savepoint-storage: filesystem
+state.backend.incremental: true
+execution.checkpointing.interval: 10000
+state.checkpoints.num-retained: 20
+state.savepoints.cancel: false
+state.savepoints.delete: false
+execution.checkpointing.externalized-checkpoint-retention: RETAIN_ON_CANCELLATION
+
+state.backend.checkpointing.checkpoints-in-externalized-directory: true
+state.ttl.cleanup-include-deltas: false
+state.checkpoints.cleanup.enable: false
+
