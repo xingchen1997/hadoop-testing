@@ -105,7 +105,7 @@ high-availability.zookeeper.quorum: hadoop-master1.orb.local:2181
 # Supported backends are 'hashmap', 'rocksdb', or the
 # <class-name-of-factory>.
 #
-state.backend.type: hashmap
+state.backend.type: filesystem
 
 state.checkpoints.num-retained: 3
 

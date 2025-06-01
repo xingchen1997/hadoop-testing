@@ -15,19 +15,21 @@
     zulu17_version: 17.54.21
     jdk17_version: 17.0.13
 
-    jdk21_enabled: false
+    jdk21_enabled: true
     zulu21_version: 21.38.21
     jdk21_version: 21.0.5
 
-    s3_enabled: false
+    s3_enabled: true
     aws_java_sdk_version: 1.12.620
 
     # components
+    # 这里我一开始设为true，后面发现影响挺大，就取消了
     kerberos_enabled: true
 
     hadoop_version: 3.3.6
 
-    hive_version: 2.3.9
+    # old: 2.3.9
+    hive_version: 3.1.2
 
     zeppelin_enabled: true
     zeppelin_version: 0.11.0
@@ -38,14 +40,15 @@
     scala_binary_version: 2.12
 
     spark_enabled: true
-    spark_binary_version: 3.5
+    spark_binary_version: 3.3
     spark_hadoop_version: 3.3.4
-    spark_version: 3.5.3
+    spark_version: 3.3.0
 
+    # todo
     flink_enabled: true
-    flink_binary_version: 1.20
-    flink_version: 1.20.0
-    flink_hive_version: 2.3.10
+    flink_binary_version: 1.16
+    flink_version: 1.16.0
+    flink_hive_version: 3.1.2
 
     kyuubi_enabled: true
     kyuubi_version: 1.10.0
@@ -54,11 +57,11 @@
     ranger_enabled: false
     ranger_version: 2.4.0
 
-    trino_enabled: false
+    trino_enabled: true
     trino_version: 436
 
     iceberg_enabled: true
-    iceberg_version: 1.7.0
+    iceberg_version: 1.4.3
 
     hudi_enabled: false
     hudi_version: 0.14.1
