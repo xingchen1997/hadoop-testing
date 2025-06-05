@@ -24,7 +24,7 @@
 
     # components
     # 这里我一开始设为true，后面发现影响挺大，就取消了
-    kerberos_enabled: true
+    kerberos_enabled: false
 
     hadoop_version: 3.3.6
 
