@@ -34,18 +34,23 @@ services:
       - hadoop_net
     volumes:
       - share:/share
+    environment:
+      - TZ=Asia/Shanghai
     ports:
       - 8088:8088
       - 9870:9870
       - 10009:10009
+      - 20009:20009
       - 10099:10099
       - 18080:18080
+      - 8083:8083
       - 8082:8082
       - 8081:8081
       - 19888:19888
       - 6080:6080
       - 1630:1630
-      - 1631:1631
+      - 1260:1260
+      - 1261:1261
     depends_on:
       - mysql
 
@@ -56,6 +61,8 @@ services:
     networks:
       - hadoop_net
     privileged: true
+    environment:
+      - TZ=Asia/Shanghai
     volumes:
       - share:/share
     depends_on:
@@ -65,6 +72,8 @@ services:
     image: hadoop-testing/hadoop-worker2:${PROJECT_VERSION}
     hostname: hadoop-worker2.orb.local
     container_name: hadoop-worker2
+    environment:
+      - TZ=Asia/Shanghai
     networks:
       - hadoop_net
     privileged: true
@@ -77,6 +86,8 @@ services:
     image: hadoop-testing/hadoop-worker3:${PROJECT_VERSION}
     hostname: hadoop-worker3.orb.local
     container_name: hadoop-worker3
+    environment:
+      - TZ=Asia/Shanghai
     networks:
       - hadoop_net
     privileged: true

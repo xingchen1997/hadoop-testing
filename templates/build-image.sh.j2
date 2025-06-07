@@ -68,12 +68,18 @@ function build_hadoop_master_image() {
   if [ $(uname -m) = "arm64" ] || [ $(uname -m) = "aarch64" ]; then HADOOP_TAR_NAME=hadoop-${HADOOP_VERSION}-aarch64; else HADOOP_TAR_NAME=hadoop-${HADOOP_VERSION}; fi
   $CP download/${HADOOP_TAR_NAME}.tar.gz hadoop-master${INDEX}/download/hadoop-${HADOOP_VERSION}.tar.gz
   $CP download/apache-hive-${HIVE_VERSION}-bin.tar.gz hadoop-master${INDEX}/download/apache-hive-${HIVE_VERSION}-bin.tar.gz
+  $CP download/iceberg-hive-runtime-1.4.3.jar hadoop-master${INDEX}/download/iceberg-hive-runtime-1.4.3.jar
+  $CP download/apache-amoro-0.7.1-incubating-bin-hadoop3.tar.gz hadoop-master${INDEX}/download/apache-amoro-0.7.1-incubating-bin-hadoop3.tar.gz
   {% if spark_enabled %}
   $CP download/spark-${SPARK_VERSION}-bin-hadoop3.tgz hadoop-master${INDEX}/download/spark-${SPARK_VERSION}-bin-hadoop3.tgz
   {% endif %}
   {% if flink_enabled %}
   $CP download/flink-${FLINK_VERSION}-bin-scala_${SCALA_BINARY_VERSION}.tgz hadoop-master${INDEX}/download/flink-${FLINK_VERSION}-bin-scala_${SCALA_BINARY_VERSION}.tgz
   $CP download/flink-sql-connector-hive-${FLINK_HIVE_VERSION}_${SCALA_BINARY_VERSION}-${FLINK_VERSION}.jar hadoop-master${INDEX}/download/flink-sql-connector-hive-${FLINK_HIVE_VERSION}_${SCALA_BINARY_VERSION}-${FLINK_VERSION}.jar
+  $CP download/mysql-connector-j-${MYSQL_JDBC_VERSION}.jar hadoop-master${INDEX}/download/mysql-connector-j-${MYSQL_JDBC_VERSION}.jar
+  $CP download/iceberg-flink-runtime-1.16-1.4.3.jar hadoop-master${INDEX}/download/iceberg-flink-runtime-1.16-1.4.3.jar
+  $CP download/flink-sql-connector-mysql-cdc-2.3.0.jar hadoop-master${INDEX}/download/flink-sql-connector-mysql-cdc-2.3.0.jar
+  $CP download/sql-client-init.sql hadoop-master${INDEX}/download/sql-client-init.sql
   {% endif %}
   $CP download/apache-kyuubi-${KYUUBI_VERSION}-bin.tgz hadoop-master${INDEX}/download/apache-kyuubi-${KYUUBI_VERSION}-bin.tgz
   $CP download/kyuubi-hive-jdbc-shaded-${KYUUBI_VERSION}.jar hadoop-master${INDEX}/download/kyuubi-hive-jdbc-shaded-${KYUUBI_VERSION}.jar
@@ -88,6 +94,7 @@ function build_hadoop_master_image() {
   $CP download/log4j2-appender-nodep-${LOKI_APPENDER_VERSION}.jar hadoop-master${INDEX}/download/log4j2-appender-nodep-${LOKI_APPENDER_VERSION}.jar
   {% if spark_enabled and iceberg_enabled %}
   $CP download/iceberg-spark-runtime-${SPARK_BINARY_VERSION}_${SCALA_BINARY_VERSION}-${ICEBERG_VERSION}.jar hadoop-master${INDEX}/download/iceberg-spark-runtime-${SPARK_BINARY_VERSION}_${SCALA_BINARY_VERSION}-${ICEBERG_VERSION}.jar
+  $CP download/iceberg-spark-runtime-3.3_2.12-1.4.3.jar hadoop-master${INDEX}/download/iceberg-spark-runtime-3.3_2.12-1.4.3.jar
   {% endif %}
   {% if flink_enabled and iceberg_enabled %}
   $CP download/iceberg-flink-runtime-${FLINK_BINARY_VERSION}-${ICEBERG_VERSION}.jar hadoop-master${INDEX}/download/iceberg-flink-runtime-${FLINK_BINARY_VERSION}-${ICEBERG_VERSION}.jar

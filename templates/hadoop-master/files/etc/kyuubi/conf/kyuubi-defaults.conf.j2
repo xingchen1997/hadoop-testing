@@ -23,7 +23,8 @@ kyuubi.kinit.principal                   kyuubi/_HOST@TEST.ORG
 kyuubi.kinit.keytab                      /share/keytabs/hadoop-master1/kyuubi.service.keytab
 {% endif %}
 
-kyuubi.frontend.bind.host                hadoop-master1.orb.local
+kyuubi.frontend.bind.host                0.0.0.0 
+# kyuubi.frontend.bind.host                hadoop-master1.orb.local
 kyuubi.frontend.protocols                THRIFT_BINARY,REST
 kyuubi.frontend.thrift.binary.bind.port  10009
 kyuubi.frontend.rest.bind.port           10099
@@ -32,8 +33,8 @@ kyuubi.engine.type                       SPARK_SQL
 kyuubi.engine.share.level                USER
 kyuubi.session.engine.initialize.timeout PT3M
 
-kyuubi.ha.addresses                      hadoop-master1.orb.local:2181
-kyuubi.ha.namespace                      kyuubi
+# kyuubi.ha.addresses                      hadoop-master1.orb.local:2181
+# kyuubi.ha.namespace                      kyuubi
 
 kyuubi.yarn.user.strategy  ADMIN
 kyuubi.yarn.user.admin     yarn

@@ -266,9 +266,11 @@ env.log.dir: /var/log/flink
 # JobManager节点地址.
 jobmanager.rpc.address: hadoop-master1.orb.local
 jobmanager.bind-host: 0.0.0.0
-rest.address: hadoop-master1.orb.local
+rest.port: 8081
+rest.address: 0.0.0.0
 rest.bind-address: 0.0.0.0
 #rest.bind-address: hadoop-master1.orb.local
 # TaskManager节点地址.需要配置为当前机器名
 taskmanager.bind-host: 0.0.0.0
 taskmanager.host: hadoop-master1.orb.local
+classloader.resolve-order: parent-first
