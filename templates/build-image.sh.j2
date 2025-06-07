@@ -80,6 +80,9 @@ function build_hadoop_master_image() {
   $CP download/iceberg-flink-runtime-1.16-1.4.3.jar hadoop-master${INDEX}/download/iceberg-flink-runtime-1.16-1.4.3.jar
   $CP download/flink-sql-connector-mysql-cdc-2.3.0.jar hadoop-master${INDEX}/download/flink-sql-connector-mysql-cdc-2.3.0.jar
   $CP download/sql-client-init.sql hadoop-master${INDEX}/download/sql-client-init.sql
+  $CP download/flink-conf.yaml hadoop-master${INDEX}/download/flink-conf.yaml
+  $CP download/amoro-mixed-format-spark-runtime-3.3-0.7.1-incubating.jar hadoop-master${INDEX}/download/amoro-mixed-format-spark-runtime-3.3-0.7.1-incubating.jar
+
   {% endif %}
   $CP download/apache-kyuubi-${KYUUBI_VERSION}-bin.tgz hadoop-master${INDEX}/download/apache-kyuubi-${KYUUBI_VERSION}-bin.tgz
   $CP download/kyuubi-hive-jdbc-shaded-${KYUUBI_VERSION}.jar hadoop-master${INDEX}/download/kyuubi-hive-jdbc-shaded-${KYUUBI_VERSION}.jar
